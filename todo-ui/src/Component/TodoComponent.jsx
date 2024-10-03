@@ -38,8 +38,7 @@ function TodoComponent() {
         console.error(error);
       })
     }
-    navigate('/')
-
+    navigate('/todos')
   }
   return (
     <div className='border p-2 container mt-2'>

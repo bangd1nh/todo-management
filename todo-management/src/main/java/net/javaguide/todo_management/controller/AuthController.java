@@ -1,6 +1,7 @@
 package net.javaguide.todo_management.controller;
 
 import lombok.AllArgsConstructor;
+import net.javaguide.todo_management.dto.JwtAuthResponse;
 import net.javaguide.todo_management.dto.LoginDto;
 import net.javaguide.todo_management.dto.RegisterDto;
 import net.javaguide.todo_management.service.AuthService;
@@ -24,8 +25,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
-        String response = authService.login(loginDto);
-        return new ResponseEntity<>(response,HttpStatus.OK);
+    public ResponseEntity<JwtAuthResponse> login(@RequestBody LoginDto loginDto){
+        JwtAuthResponse jwtAuthResponse = authService.login(loginDto);
+
+        return new ResponseEntity<>(jwtAuthResponse,HttpStatus.OK);
     }
 }
